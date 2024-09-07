@@ -13,9 +13,18 @@
         <span>Random Password</span>
       </h1>
       <div class="display">
-        <input type="text" id="password" placeholder="Password" />
-        <img src="assets/images/copy.png" alt="" />
+        <input readonly type="text" id="password" placeholder="Password" />
+        <button></button>
+        <button class="copyButton" id="copyButton">
+          <img src="assets/images/copy.png" alt="" />
+        </button>
       </div>
+      <button class="generateButton" id="button">
+        <img src="assets/images/generate.png" alt="" /> Generate Password
+      </button>
     </div>
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">Password copied to clipboard!</div>
+    <script type="module" src="assets/scripts/main.js"></script>
   </body>
 </html>
