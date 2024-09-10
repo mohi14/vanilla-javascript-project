@@ -2,9 +2,18 @@ let userInput = document.getElementById("date");
 userInput.max = new Date().toISOString().split("T")[0];
 const result = document.getElementById("result");
 
+const showToast = (message) => {
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+};
+
 const calculateAge = () => {
   if (!userInput.value) {
-    alert("Please put your date of birth!");
+    showToast("Please put your date of birth!");
     return;
   }
   let birthDate = new Date(userInput.value);
@@ -40,7 +49,17 @@ const calculateAge = () => {
     y3--;
   }
 
-  result.innerHTML = `Your are ${y3} years, ${m3} months and ${d3} days old`;
+  let resultText;
+
+  if (y3 > 0 && m3 > 0) {
+    resultText = `Your are <span>${y3}</span> years, <span>${m3}</span> months and <span>${d3}</span> days old`;
+  } else if (y3 === 0 && m3 > 0) {
+    resultText = `Your are <span>${m3}</span> months and <span>${d3}</span> days old`;
+  } else if (y3 === 0 && m3 === 0) {
+    resultText = `Your are <span>${d3}</span> days old`;
+  }
+
+  result.innerHTML = resultText;
 };
 
 function getDaysInMonth(year, month) {
