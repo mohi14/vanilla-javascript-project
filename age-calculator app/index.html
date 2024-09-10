@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/styles/app.css" />
+    <title>Age Calculator App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <h1>Age Calculator</h1>
+        <div class="input-box">
+          <input type="date" id="date" aria-label="Enter your date of birth" />
+          <button id="calculateBtn" onclick="calculateAge()">Calculate</button>
+        </div>
+        <p id="result"></p>
+      </div>
+    </div>
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">Please put your date of birth!</div>
+    <script src="assets/scripts/main.js"></script>
+  </body>
+</html>
